@@ -1,0 +1,10 @@
+<h1>NEW GAME SUCKER</h1>
+<%= @letters %>
+
+<form action="/score" method="post">
+   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+   <%= hidden_field_tag :time_taken ,Time.now - @start_time %>
+   <input type="hidden" name="letters" value="<%= @letters.join(",") %>">
+  <input type="text" name="new" placeholder="create a word">
+  <input type="submit">
+</form>
